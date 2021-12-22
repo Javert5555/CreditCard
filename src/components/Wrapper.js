@@ -4,7 +4,9 @@ import "../index.scss"
 
 const Wrapper = () => (
     <div className="wrapper">
-        <CardCover />
+        <div className="veil">
+            <CardCover />
+        </div>
     </div>
 );
 

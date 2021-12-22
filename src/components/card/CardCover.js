@@ -1,13 +1,13 @@
 import React from "react";
 import "../../styles/card.scss";
-import Dune from "../../assets/img/dune.jpg"
-
+import Visa from "../../assets/img/visa-logo-1.png"
+import Chip from "../../assets/img/chip-2.png"
 
 const CardCover = () => {
     return (
         <div className="card-cover">
-            123
-            <img src={Dune} />
+            <img className="card-chip" src={Chip} />
+            <img className="visa-logo" src={Visa} />
         </div>
     );
 };
