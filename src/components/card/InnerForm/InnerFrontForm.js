@@ -3,7 +3,7 @@ import FourCardNumber from "./FourCardNumbers";
 import "../../../styles/forms.scss";
 
 
-const InnerForm = () => {
+const InnerFrontForm = () => {
     let cardNumberGroups = [];
 
     for (let i = 0; i < 4; i++) {
@@ -38,4 +38,4 @@ const InnerForm = () => {
     );
 };
 
-export default InnerForm;
+export default InnerFrontForm;

@@ -6,27 +6,112 @@
     background-size: cover;
 }
 
+@mixin positionAbs($top, $left) {
+    position: absolute;
+    top: $top;
+    left: $left;
+}
+
 .card {
     position: relative;
     width: 430px;
     height: 270px;
-    @include background("../assets/img/dune.jpg");
-    border-radius: 3%;
     margin: 2em auto 0;
+    perspective: 1000px;
+}
+
+.card__front, .card__back {
+    width: 100%;
+    height: 100%;
+    transition: 1s;
+    backface-visibility: hidden;
+    @include background("../assets/img/dune.jpg");
+    @include positionAbs(0, 0);
+    border-radius: 3%;
+}
+
+.card__back {
+    transform: rotateY(180deg);
+}
+.card:hover .card__front {
+  transform: rotateY(180deg);
+}
+.card:hover .card__back {
+  transform: rotateY(360deg);
 }
 
 .card-chip {
-    position: absolute;
-    top: 5%;
-    left: 5%;
+    @include positionAbs(5%, 5%);
     width: 40px;
     height: auto;
 }
 
 .visa-logo {
-    position: absolute;
-    top: 3%;
-    right: 3%;
     width: 70px;
     height: auto;
 }
+
+// Elements of the front side of the card \\
+
+.visa-logo_front {
+    @include positionAbs(3%, 81%);
+}
+
+// Elements of the back side of the card \\
+
+.card__back__wallpaper { // if we need to rotate the background image, else just remove this class and this element
+    width: 100%;
+    height: 100%;
+    @include background("../assets/img/dune.jpg");
+    transform: scaleX(-1);
+    border-radius: 3%;
+}
+
+.card__back__strip {
+    content: "";
+    @include positionAbs(30px, 0);
+    width: 100%;
+    height: 50px;
+    background-color: #000000c7;
+}
+
+.card__back__cvv {
+    @include positionAbs(100px, 0);
+    width: 100%;
+    text-align: end;
+}
+
+.card__back__cvv__title {
+    text-transform: uppercase;
+    font-size: .9rem;
+    margin-right: 25px;
+}
+
+.card__back__cvv__strip {
+    content: "";
+    width: 400px;
+    height: 45px;
+    background-color: #f0f8ff;
+    border-radius: 8px;
+    margin: 0 auto;
+}
+
+.card__back__cvv__strip__symbols {
+    padding: 10px 10px 0 0;
+}
+
+.card__back__cvv__strip__symbol {
+    margin-right: 2px;
+    font-size: 1.1rem;
+}
+
+.card__back__cvv__strip__symbol:last-child {
+    margin-right: 0;
+}
+
+.visa-logo_back {
+    margin: 20px 15px;
+
+}
+
+
