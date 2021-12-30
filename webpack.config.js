@@ -16,22 +16,9 @@ module.exports = {
         new HTMLWebpackPlugin({template: "./src/index.html"}),
         new CleanWebpackPlugin()
     ],
+    devtool: "source-map",
     module: {
         rules: [
-            {
-                test:/\.(css|s[ac]ss)$/,
-                use: [
-                    "style-loader",
-                    "css-loader",
-                    "sass-loader",
-                ]
-            },
-            {
-                test: /\.(jpg|jpeg|png|svg)/,
-                use: [
-                    "file-loader"
-                ]
-            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -41,7 +28,19 @@ module.exports = {
                         presets: ["@babel/preset-env", "@babel/preset-react"]
                     }
                 }
-            }
+            },
+            {
+                test:/\.(css|s[ac]ss)$/,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "sass-loader",
+                ]
+            },
+            {
+                test: /\.(jpe?g|png|gif|svg)$/i, 
+                type: 'asset/resource'
+            },
         ]
     }
 }

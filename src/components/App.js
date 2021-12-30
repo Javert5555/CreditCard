@@ -1,11 +1,9 @@
 import React from "react";
+import Wrapper from "./Wrapper";
+
 
 const App = () => (
-    <div>
-        <h1 className="intro">
-            test
-        </h1>
-    </div>
+    <Wrapper />
 );
 
 export default App;

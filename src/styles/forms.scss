@@ -1,0 +1,100 @@
+// textarea {
+//     overflow: hidden;
+//     outline: none;
+//     border: 5px #ffffff solid;
+//     resize: none;
+//     background-color: transparent;
+//     font-size: 2rem;
+//     width: 300px;
+//     height: 30px;
+//     margin: 100px auto;
+// }
+
+div .focus {
+    border: 2px solid #eeeeee;
+    border-radius: 10px;
+    background-color: #5353537e;
+}
+
+// Card number //
+
+.card-items__number {
+    position: absolute;
+    left: 15px;
+    top: 100px;
+    display: flex;
+    justify-content: space-around;
+    width: 400px;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+// .card-items__number__group {
+// }
+
+.card-items__number__group-count {
+    margin-right: 0.2rem;
+    font-size: 1.6rem;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.card-items__number__group-count:last-child {
+    margin-right: 0;
+}
+
+// Card name //
+
+.card-items__name {
+    position: absolute;
+    left: 15px;
+    top: 200px;
+    width: 280px;
+    height: 55px;
+    padding: 2px 6px;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.card-items__name__title {
+    font-size: .9rem;
+    color: #b1b1b1;
+}
+
+.card-items__name_suptitle {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+// Card date //
+
+.card-items__date {
+    position: absolute;
+    left: 320px;
+    top: 200px;
+    width: 90px;
+    height: 55px;
+    padding: 2px 6px;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.card-items__date__title {
+    font-size: .9rem;
+    color: #b1b1b1;
+}
+
+.card-items__date__info {
+
+}
+
+.card-items__date__info__month, .card-items__date__info__slash, .card-items__date__info__year {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: #ffffff;
+}
+
+.card-items__date__info__slash {
+    margin: 0 3px;
+}
