@@ -1,5 +1,5 @@
 import React from "react";
-import InnerFrontForm from "./InnerForm/InnerFrontForm";
+import InnerFrontForm from "./inner_form/InnerFrontForm";
 import "../../styles/card.scss";
 import Visa from "../../assets/img/visa-logo-1.png"
 import Chip from "../../assets/img/chip-2.png"
@@ -7,22 +7,22 @@ import Chip from "../../assets/img/chip-2.png"
 const CardCover = () => {
     return (
         <div className="card">
-            <div className="card__front">
+            <div className="card-front">
                 <img className="card-chip" src={Chip} />
                 <img className="visa-logo visa-logo_front" src={Visa} />
                 <InnerFrontForm />
             </div>
-            <div className="card__back">
-                <div className="card__back__wallpaper"></div>
-                <div className="card__back__strip"></div>
-                <div className="card__back__cvv">
-                    <p className="card__back__cvv__title">cvv</p>
-                    <div className="card__back__cvv__strip">
-                        <div className="card__back__cvv__strip__symbols">
-                            <span className="card__back__cvv__strip__symbol">*</span>
-                            <span className="card__back__cvv__strip__symbol">*</span>
-                            <span className="card__back__cvv__strip__symbol">*</span>
-                            <span className="card__back__cvv__strip__symbol">*</span>
+            <div className="card-back">
+                <div className="card-back__wallpaper"></div>
+                <div className="card-back__strip"></div>
+                <div className="card-back__cvv">
+                    <p className="card-back__cvv-title">cvv</p>
+                    <div className="card-back__cvv-strip">
+                        <div className="card-back__cvv-symbols">
+                            <span className="card-back__cvv-symbol">*</span>
+                            <span className="card-back__cvv-symbol">*</span>
+                            <span className="card-back__cvv-symbol">*</span>
+                            <span className="card-back__cvv-symbol">*</span>
                         </div>
                     </div>
                     <img className="visa-logo visa-logo_back" src={Visa} />

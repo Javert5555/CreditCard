@@ -1,8 +1,7 @@
-@mixin background($url) {
-    background-image: url($url);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
+@import './styles/mixins';;
+
+:root {
+    box-sizing: border-box;
 }
 
 body {
@@ -10,6 +9,7 @@ body {
     padding: 0;
     line-height: 1.6;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
 }
 
 *, *:before, *:after {
@@ -21,33 +21,30 @@ h1, h2, h3, h4, h5, h6, p {
     padding: 0;
 }
 
-// .wrapper {
-//     // max-width: 100vw;
-//     // height: 100vh;
-//     @include background("./assets/img/dune.jpg");
-//     filter: blur(5px);
-//     z-index: -1;
-
-// }
-
 .wrapper {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 100vh; // if we add the veil, the change this strike to: "height: 100%;"
+    padding: 20px; // if we add the veil, then delete this strike
+
 }
 
 .wrapper::before {
     content: '';
     position: absolute;
-    left: 0; right: 0; top: 0; bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    // margin: -30px;
     z-index: -1;
-    @include background("./assets/img/dune.jpg");
-    filter: blur(5px);
+    @include background("./assets/img/wall2.jpg");
+    // filter: blur(5px);
 }
 
-.veil {
-    max-width: 100%;
-    height: calc(100vh - 40px);
-    padding: 20px;
-    background-color: #c7c7c733;
-}
+// .veil { // <----- if we need a veil
+//     max-width: 100%;
+//     height: 100vh;
+//     padding: 20px;
+//     background-color: #c7c7c733;
+// }

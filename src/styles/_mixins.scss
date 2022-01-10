@@ -1,0 +1,12 @@
+@mixin background($url) {
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+@mixin positionAbs($top, $left) {
+    position: absolute;
+    top: $top;
+    left: $left;
+}

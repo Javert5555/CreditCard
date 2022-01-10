@@ -1,0 +1,72 @@
+$input-form-width: 500px;
+
+.input-form {
+    border-radius: 1em;
+    margin: -9em auto;
+    width: $input-form-width;
+    height: auto;
+    background-color: #b6b6b65b;
+    z-index: -1;
+    padding: 11em 2em 1em;
+}
+
+.input-form__title {
+    font-size: 1rem;
+    font-weight: 100;
+    color: #ffffff;
+    margin-bottom: 3px;
+}
+
+input, select {
+    border: 1px solid transparent;
+    border-radius: .4em;
+    background-color: #f0f0f0;
+    font-size: 1.2rem;
+    font-weight: 100;
+    padding: 10px 10px;
+    outline: none;
+    transition: all .3s ease-in-out;
+}
+
+input:focus,
+select:focus {
+    border: 1px solid #000000;
+}
+
+// Upper part \\
+
+
+.input-form__number,
+.input-form__holder {
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+// Bottom part \\
+
+.input-form__bottom-part,
+.input-form__exp-date_inner {
+    display: flex;
+}
+
+
+.input-form__month,
+.input-form__year {
+    margin-right: 1em;
+    width: calc(100% - 1em);
+    word-break:break-word;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+// .input-form__number
+// .input-form__holder
+// .input-form__month
+// .input-form__year
+// .input-form__cvv
