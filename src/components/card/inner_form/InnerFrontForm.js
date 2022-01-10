@@ -28,9 +28,9 @@ const InnerFrontForm = () => {
                 <div className="card-front__date focus">
                     <div className="card-front__date-title">Expires</div>
                     <div className="card-front__date-info">
-                        <label id="card-month" className="card-front__date-info-month">12</label>
+                        <label htmlFor="card-month" className="card-front__date-info-month">mm</label>
                         <span className="card-front__date-info-slash">/</span>
-                        <label id="card-year" className="card-front__date-info-year">22</label>
+                        <label htmlFor="card-year" className="card-front__date-info-year">yy</label>
                     </div>
                 </div>
             </form>
