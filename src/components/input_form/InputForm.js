@@ -9,6 +9,7 @@ const InputForm = () => {
         <form className="input-form">
             <FormUpperPart />
             <FormBottomPart />
+            <input className="input-form__submit" type="submit" value="Submit" />
         </form>
     );
 };
