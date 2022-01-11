@@ -3,13 +3,16 @@ import CardCover from "./card/CardCover";
 import InputForm from "./input_form/InputForm";
 import "../index.scss"
 
-const Wrapper = () => (
-    <div className="wrapper">
-        <div className="veil">
-            <CardCover />
-            <InputForm />
+const Wrapper = () => {
+    return (
+        <div className="wrapper">
+            <div className="veil">
+                <CardCover />
+                <InputForm />
+            </div>
         </div>
-    </div>
-);
+    );
+
+};
 
 export default Wrapper;
