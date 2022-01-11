@@ -63,6 +63,7 @@ const FormBottomPart = () => {
                     className="input-form__cvv"
                     name="cvv"
                     type="text"
+                    maxLength={3}
                     // value={}
                     // onChange={}
                 />

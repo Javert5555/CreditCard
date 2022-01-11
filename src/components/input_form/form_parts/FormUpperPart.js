@@ -1,6 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const FormUpperPart = () => {
+
+    const [ cardNumber, setCardNumber ] = useState("");
+
+    const changeCardNumber = ({ target }) => {
+        let value = target.value.replace(/\s/g, "");
+        target.value = value.replace(/\D/g, "");
+
+        let count = target.value;
+
+        if (count.length  > 4 && count.length <= 8) {
+            count = `${count.slice(0,4)} ${count.slice(4)}`;
+        } else if (count.length  > 8 && count.length <= 12) {
+            count = `${count.slice(0,4)} ${count.slice(4,8)} ${count.slice(8)}`;
+        } else if (count.length  > 12) {
+            count = `${count.slice(0,4)} ${count.slice(4,8)} ${count.slice(8,12)} ${count.slice(12)}`;
+        }
+
+        setCardNumber(() => {
+            return count;
+        });
+    };
 
     return (
         <div>
@@ -11,8 +32,9 @@ const FormUpperPart = () => {
                     className="input-form__number"
                     name="number"
                     type="text"
-                    // value={}
-                    // onChange={}
+                    maxLength={19}
+                    value={cardNumber}
+                    onChange={changeCardNumber}
                 />
             </label>
             <label htmlFor="card-name" className="input-form__label">
