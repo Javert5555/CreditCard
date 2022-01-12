@@ -19,18 +19,26 @@ div .focus {
     cursor: pointer;
 }
 
-// .card-front__number__group {
-// }
+.card-front__number-group {
+    display: flex;
+    flex-direction: row;
+}
 
-.card-front__number-count {
+.card-front__number-item {
     margin-right: 0.2rem;
     font-size: 1.6rem;
     color: #fff;
-    text-transform: uppercase;
+    text-align: center;
+    // width: 30px;
 }
 
 .card-front__number-count:last-child {
     margin-right: 0;
+}
+
+.card-front__number-count {
+    width: 14px;
+    text-transform: uppercase;
 }
 
 // Card name //
@@ -50,9 +58,11 @@ div .focus {
 }
 
 .card-front__name-suptitle {
-    // text-transform: uppercase;
+    text-transform: uppercase;
     font-size: 1.2rem;
     color: #fff;
+    white-space: normal;
+    overflow: hidden;
 }
 
 // Card date //
@@ -71,9 +81,10 @@ div .focus {
     color: #b1b1b1;
 }
 
-// .card-front__date__info {
-
-// }
+.card-front__date-info {
+    display: flex;
+    justify-content: center;
+}
 
 .card-front__date-info-month, .card-front__date-info-slash, .card-front__date-info-year {
     text-transform: uppercase;
