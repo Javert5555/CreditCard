@@ -1,14 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FourCardNumber from "./FourCardNumbers";
 import "../../../styles/forms.scss";
 
 
-const InnerFrontForm = () => {
+const InnerFrontForm = ({ cardNumber, cardHolder }) => {
     let cardNumberGroups = [];
 
     for (let i = 0; i < 4; i++) {
         cardNumberGroups.push(<FourCardNumber />);
     }
+
+    useEffect(() => {
+        let counts = cardNumber.replace(/\s/g, "").split("");
+        let countItems = document.querySelectorAll(".card-front__number-count");
+        for (let countItem of countItems) {
+            countItem.innerHTML = "#";
+        }
+        counts.map((count, index) => {
+            countItems[index].innerHTML = count;
+        });
+    }, [cardNumber]);
+
+    useEffect(() => {
+        let holderName = document.querySelector(".card-front__name-suptitle");
+        if (cardHolder.length === 0) {
+            holderName.innerHTML = "Full Name";
+        } else {
+            holderName.innerHTML = cardHolder;
+        }
+    }, [cardHolder])
+
 
     return (
             <form>
@@ -22,7 +43,7 @@ const InnerFrontForm = () => {
 
                 <label htmlFor="card-name" className="card-front__name focus">
                         <div className="card-front__name-title">Card Holder</div>
-                        <div className="card-front__name-suptitle">full name</div>
+                        <div className="card-front__name-suptitle">Full Name</div>
                 </label>
 
                 <div className="card-front__date focus">

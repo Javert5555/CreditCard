@@ -11,9 +11,7 @@ div .focus {
 // Card number //
 
 .card-front__number {
-    position: absolute;
-    left: 15px;
-    top: 100px;
+    @include positionAbs($top: 100px, $left: 15px);
     display: flex;
     justify-content: space-around;
     width: 400px;
@@ -38,10 +36,8 @@ div .focus {
 // Card name //
 
 .card-front__name {
-    position: absolute;
-    left: 15px;
-    top: 200px;
-    width: 280px;
+    @include positionAbs($top: 200px, $left: 15px);
+    width: 300px;
     height: auto;
     padding: 3px 8px;
     border: 2px solid transparent;
@@ -54,7 +50,7 @@ div .focus {
 }
 
 .card-front__name-suptitle {
-    text-transform: uppercase;
+    // text-transform: uppercase;
     font-size: 1.2rem;
     color: #fff;
 }
@@ -62,9 +58,7 @@ div .focus {
 // Card date //
 
 .card-front__date {
-    position: absolute;
-    left: 320px;
-    top: 200px;
+    @include positionAbs($top: 200px, $left: 325px);
     width: 90px;
     height: auto;
     padding: 3px 8px;
