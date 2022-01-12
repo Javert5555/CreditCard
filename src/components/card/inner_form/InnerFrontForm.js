@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import FourCardNumber from "./FourCardNumbers";
-import "../../../styles/forms.scss";
+import "../../../styles/inner-forms.scss";
 
 
-const InnerFrontForm = ({ cardNumber, cardHolder }) => {
+const InnerFrontForm = ({ cardNumber, cardHolder, cardMonth }) => {
     let cardNumberGroups = [];
 
     for (let i = 0; i < 4; i++) {
@@ -17,7 +17,11 @@ const InnerFrontForm = ({ cardNumber, cardHolder }) => {
             countItem.innerHTML = "#";
         }
         counts.map((count, index) => {
-            countItems[index].innerHTML = count;
+            if (index > 3 && index < 12) {
+                countItems[index].innerHTML = "*";
+            } else {
+                countItems[index].innerHTML = count;
+            }
         });
     }, [cardNumber]);
 
@@ -28,7 +32,18 @@ const InnerFrontForm = ({ cardNumber, cardHolder }) => {
         } else {
             holderName.innerHTML = cardHolder;
         }
+
     }, [cardHolder])
+
+    useEffect(() => {
+        let monthDate = document.querySelector(".card-front__date-info-month");
+        if (cardMonth === "DEFAULT") {
+            monthDate.innerHTML = "mm";
+        } else {
+            monthDate.innerHTML = cardMonth;
+        }
+
+    }, [cardMonth])
 
 
     return (

@@ -7,9 +7,14 @@ const Wrapper = () => {
 
     const [ cardNumber, setCardNumber ] = useState("");
     const [ cardHolder, setCardHolder ] = useState("");
+    const [ cardMonth, setCardMonth ] = useState("DEFAULT");
+
+    const changeCardMonth = ({target}) => {
+        console.log(target.value)
+        setCardMonth(() => target.value);
+    };
 
     const changeCardHolder = ({ target }) => {
-        console.log(target.value)
         setCardHolder(() => target.value);
     };
 
@@ -38,12 +43,15 @@ const Wrapper = () => {
                 <CardCover
                     cardNumber={cardNumber}
                     cardHolder={cardHolder}
+                    cardMonth={cardMonth}
                 />
                 <InputForm
                     cardNumber={cardNumber}
                     cardHolder={cardHolder}
+                    cardMonth={cardMonth}
                     changeCardNumber={changeCardNumber}
                     changeCardHolder={changeCardHolder}
+                    changeCardMonth={changeCardMonth}
                 />
             </div>
         </div>

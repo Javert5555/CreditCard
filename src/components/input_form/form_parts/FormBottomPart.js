@@ -1,6 +1,6 @@
 import React from "react";
 
-const FormBottomPart = () => {
+const FormBottomPart = ({ cardMonth, changeCardMonth}) => {
 
     return (
         <div className="input-form__bottom-part">
@@ -11,9 +11,9 @@ const FormBottomPart = () => {
                         <select
                             id="card-month"
                             className="input-form__month"
-                            defaultValue="DEFAULT"
-                            // value={}
-                            // onChange={}
+                            // defaultValue="DEFAULT"
+                            value={cardMonth}
+                            onChange={changeCardMonth}
                         >
                             <option value="DEFAULT" disabled>Month</option>
                             <option value="01">01</option>

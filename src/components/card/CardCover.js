@@ -4,7 +4,7 @@ import "../../styles/card.scss";
 import Visa from "../../assets/img/visa-logo-1.png"
 import Chip from "../../assets/img/chip-2.png"
 
-const CardCover = ({ cardNumber, cardHolder }) => {
+const CardCover = ({ cardNumber, cardHolder, cardMonth }) => {
     return (
         <div className="card">
             <div className="card-front">
@@ -13,6 +13,7 @@ const CardCover = ({ cardNumber, cardHolder }) => {
                 <InnerFrontForm
                     cardNumber={cardNumber}
                     cardHolder={cardHolder}
+                    cardMonth={cardMonth}
                 />
             </div>
             <div className="card-back">
