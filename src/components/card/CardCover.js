@@ -4,13 +4,16 @@ import "../../styles/card.scss";
 import Visa from "../../assets/img/visa-logo-1.png"
 import Chip from "../../assets/img/chip-2.png"
 
-const CardCover = () => {
+const CardCover = ({ cardNumber, cardHolder }) => {
     return (
         <div className="card">
             <div className="card-front">
                 <img className="card-chip" src={Chip} />
                 <img className="visa-logo visa-logo_front" src={Visa} />
-                <InnerFrontForm />
+                <InnerFrontForm
+                    cardNumber={cardNumber}
+                    cardHolder={cardHolder}
+                />
             </div>
             <div className="card-back">
                 <div className="card-back__wallpaper"></div>
