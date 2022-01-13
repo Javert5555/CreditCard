@@ -86,16 +86,18 @@
 
 .card-back__cvv-symbols {
     padding: 10px 10px 0 0;
-}
-
-.card-back__cvv-symbol {
-    margin-right: 2px;
     font-size: 1.1rem;
+
 }
 
-.card-back__cvv__strip__symbol:last-child {
-    margin-right: 0;
-}
+// .card-back__cvv-symbol {
+//     margin-right: 2px;
+//     font-size: 1.1rem;
+// }
+
+// .card-back__cvv__strip__symbol:last-child {
+//     margin-right: 0;
+// }
 
 .visa-logo_back {
     margin: 20px 15px;
