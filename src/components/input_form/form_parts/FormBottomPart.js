@@ -1,6 +1,6 @@
 import React from "react";
 
-const FormBottomPart = ({ cardMonth, changeCardMonth}) => {
+const FormBottomPart = ({ cardMonth, handlerCardMonth}) => {
 
     return (
         <div className="input-form__bottom-part">
@@ -13,7 +13,7 @@ const FormBottomPart = ({ cardMonth, changeCardMonth}) => {
                             className="input-form__month"
                             // defaultValue="DEFAULT"
                             value={cardMonth}
-                            onChange={changeCardMonth}
+                            onChange={handlerCardMonth}
                         >
                             <option value="DEFAULT" disabled>Month</option>
                             <option value="01">01</option>
@@ -63,7 +63,7 @@ const FormBottomPart = ({ cardMonth, changeCardMonth}) => {
                     className="input-form__cvv"
                     name="cvv"
                     type="text"
-                    maxLength={3}
+                    maxLength={4}
                     // value={}
                     // onChange={}
                 />
