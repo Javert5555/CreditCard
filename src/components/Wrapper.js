@@ -7,11 +7,24 @@ const Wrapper = () => {
 
     const [ cardNumber, setCardNumber ] = useState("");
     const [ cardHolder, setCardHolder ] = useState("");
+    const [ cardCVV, setCardCVV ] = useState("");
     const [ cardMonth, setCardMonth ] = useState("DEFAULT");
+    const [ cardYear, setCardYear ] = useState("DEFAULT");
 
-    const handlerCardMonth = ({target}) => {
-        console.log(target.value)
+
+    const handlerCardYear = ({ target }) => {
+        setCardYear(() => target.value);
+    };
+
+    const handlerCardMonth = ({ target }) => {
         setCardMonth(() => target.value);
+    };
+
+    const handlerCardCVV = ({ target }) => {
+        const value = target.value;
+        target.value = value.replace(/\D/g, ""); // delete not numbers
+
+        setCardCVV(() => target.value);
     };
 
     const handlerCardHolder = ({ target }) => {
@@ -19,7 +32,7 @@ const Wrapper = () => {
     };
 
     const handlerCardNumber = ({ target }) => {
-        let value = target.value.replace(/\s/g, ""); // delete all spaces
+        const value = target.value.replace(/\s/g, ""); // delete all spaces
         target.value = value.replace(/\D/g, ""); // delete not numbers
 
         let number = target.value;
@@ -32,9 +45,7 @@ const Wrapper = () => {
             number = `${number.slice(0,4)} ${number.slice(4,8)} ${number.slice(8,12)} ${number.slice(12)}`;
         }
 
-        setCardNumber(() => {
-            return number;
-        });
+        setCardNumber(() => number);
     };
 
     return (
@@ -44,14 +55,20 @@ const Wrapper = () => {
                     cardNumber={cardNumber}
                     cardHolder={cardHolder}
                     cardMonth={cardMonth}
+                    cardYear={cardYear}
+                    cardCVV={cardCVV}
                 />
                 <InputForm
                     cardNumber={cardNumber}
                     cardHolder={cardHolder}
                     cardMonth={cardMonth}
+                    cardYear={cardYear}
+                    cardCVV={cardCVV}
                     handlerCardNumber={handlerCardNumber}
                     handlerCardHolder={handlerCardHolder}
                     handlerCardMonth={handlerCardMonth}
+                    handlerCardYear={handlerCardYear}
+                    handlerCardCVV={handlerCardCVV}
                 />
             </div>
         </div>

@@ -3,7 +3,7 @@ import FourCardNumber from "./FourCardNumbers";
 import "../../../styles/inner-forms.scss";
 
 
-const InnerFrontForm = ({ cardNumber, cardHolder, cardMonth }) => {
+const InnerFrontForm = ({ cardNumber, cardHolder, cardMonth, cardYear }) => {
     let cardNumberGroups = [];
 
     for (let i = 0; i < 4; i++) {
@@ -19,6 +19,7 @@ const InnerFrontForm = ({ cardNumber, cardHolder, cardMonth }) => {
         counts.map((count, index) => {
             if (index > 3 && index < 12) {
                 countItems[index].innerHTML = "*";
+                // hide the 8 central digits of the card
             } else {
                 countItems[index].innerHTML = count;
             }
@@ -29,11 +30,14 @@ const InnerFrontForm = ({ cardNumber, cardHolder, cardMonth }) => {
         let holderName = document.querySelector(".card-front__name-suptitle");
         if (cardHolder.length === 0) {
             holderName.innerHTML = "Full Name";
+        } else if (cardHolder.length >= 25) {
+            holderName.innerHTML = `${cardHolder.slice(0,23)}&#133`;
+            // if the line exceeds the element boundaries, trim it
         } else {
             holderName.innerHTML = cardHolder;
         }
 
-    }, [cardHolder])
+    }, [cardHolder]);
 
     useEffect(() => {
         let monthDate = document.querySelector(".card-front__date-info-month");
@@ -43,7 +47,17 @@ const InnerFrontForm = ({ cardNumber, cardHolder, cardMonth }) => {
             monthDate.innerHTML = cardMonth;
         }
 
-    }, [cardMonth])
+    }, [cardMonth]);
+
+    useEffect(() => {
+        let cardDate = document.querySelector(".card-front__date-info-year");
+        if (cardYear === "DEFAULT") {
+            cardDate.innerHTML = "yy";
+        } else {
+            cardDate.innerHTML = cardYear.slice(2,4);
+        }
+
+    }, [cardYear]);
 
 
     return (

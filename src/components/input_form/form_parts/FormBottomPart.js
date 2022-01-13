@@ -1,6 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-const FormBottomPart = ({ cardMonth, handlerCardMonth}) => {
+const FormBottomPart = ({ cardMonth, cardYear, cardCVV, handlerCardMonth, handlerCardYear, handlerCardCVV }) => {
+    const handlerCvv = ({ target }) => {
+        if (target.id === "card-cvv") {
+            document.querySelector(".card-front").style.transform = "rotateY(180deg)";
+            document.querySelector(".card-back").style.transform = "rotateY(360deg)";
+        } else {
+            document.querySelector(".card-front").style.transform = "rotateY(0deg)";
+            document.querySelector(".card-back").style.transform = "rotateY(180deg)";
+        }
+        // if you click on the cvv code, the card will rotate 180 degrees
+        // else the card stays in the same position or is rotated to its original position
+    };
+
+    useEffect(() => {
+        window.addEventListener("click", handlerCvv);
+        return () => {
+            window.removeEventListener("click", handlerCvv);
+        }
+    }, [])
 
     return (
         <div className="input-form__bottom-part">
@@ -11,7 +29,6 @@ const FormBottomPart = ({ cardMonth, handlerCardMonth}) => {
                         <select
                             id="card-month"
                             className="input-form__month"
-                            // defaultValue="DEFAULT"
                             value={cardMonth}
                             onChange={handlerCardMonth}
                         >
@@ -35,9 +52,8 @@ const FormBottomPart = ({ cardMonth, handlerCardMonth}) => {
                         <select
                             id="card-year"
                             className="input-form__year"
-                            defaultValue="DEFAULT"
-                            // value={}
-                            // onChange={}
+                            value={cardYear}
+                            onChange={handlerCardYear}
                         >
                             <option value="DEFAULT" disabled>Year</option>
                             <option value="2022">2022</option>
@@ -56,18 +72,20 @@ const FormBottomPart = ({ cardMonth, handlerCardMonth}) => {
                     </label>
                 </div>
             </div>
-            <label htmlFor="card-cvv" className="input-form__label">
-                <h2 className="input-form__title">CVV:</h2>
-                <input
-                    id="card-cvv"
-                    className="input-form__cvv"
-                    name="cvv"
-                    type="text"
-                    maxLength={4}
-                    // value={}
-                    // onChange={}
-                />
-            </label>
+            <div id="input-form__label_cvv">
+                <label htmlFor="card-cvv" className="input-form__label">
+                    <h2 className="input-form__title">CVV:</h2>
+                    <input
+                        id="card-cvv"
+                        className="input-form__cvv"
+                        name="cvv"
+                        type="text"
+                        maxLength={4}
+                        value={cardCVV}
+                        onChange={handlerCardCVV}
+                    />
+                </label>
+            </div>
         </div>
     );
 }

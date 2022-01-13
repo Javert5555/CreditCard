@@ -3,7 +3,18 @@ import FormBottomPart from "./form_parts/FormBottomPart";
 import FormUpperPart from "./form_parts/FormUpperPart";
 import "../../styles/input-form.scss";
 
-const InputForm = ({ cardNumber, cardHolder, cardMonth, handlerCardNumber, handlerCardHolder, handlerCardMonth}) => {
+const InputForm = ({
+        cardNumber,
+        cardHolder,
+        cardCVV,
+        cardMonth,
+        cardYear,
+        handlerCardNumber,
+        handlerCardHolder,
+        handlerCardCVV,
+        handlerCardMonth,
+        handlerCardYear
+    }) => {
 
     return (
         <form className="input-form">
@@ -15,7 +26,12 @@ const InputForm = ({ cardNumber, cardHolder, cardMonth, handlerCardNumber, handl
             />
             <FormBottomPart
                 cardMonth={cardMonth}
+                cardYear={cardYear}
+                cardCVV={cardCVV}
                 handlerCardMonth={handlerCardMonth}
+                handlerCardYear={handlerCardYear}
+                handlerCardCVV={handlerCardCVV}
+
             />
             <input className="input-form__submit" type="submit" value="Submit" />
         </form>
