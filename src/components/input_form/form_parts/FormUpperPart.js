@@ -1,6 +1,6 @@
 import React from "react";
 
-const FormUpperPart = ({ cardNumber, cardHolder, changeCardNumber, changeCardHolder}) => {
+const FormUpperPart = ({ cardNumber, cardHolder, handlerCardNumber, handlerCardHolder}) => {
 
     return (
         <div>
@@ -13,7 +13,7 @@ const FormUpperPart = ({ cardNumber, cardHolder, changeCardNumber, changeCardHol
                     type="text"
                     maxLength={19}
                     value={cardNumber}
-                    onChange={changeCardNumber}
+                    onChange={handlerCardNumber}
                 />
             </label>
             <label htmlFor="card-name" className="input-form__label">
@@ -24,7 +24,7 @@ const FormUpperPart = ({ cardNumber, cardHolder, changeCardNumber, changeCardHol
                     name="holder"
                     type="text"
                     value={cardHolder}
-                    onChange={changeCardHolder}
+                    onChange={handlerCardHolder}
                 />
             </label>
         </div>

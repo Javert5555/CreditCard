@@ -9,16 +9,16 @@ const Wrapper = () => {
     const [ cardHolder, setCardHolder ] = useState("");
     const [ cardMonth, setCardMonth ] = useState("DEFAULT");
 
-    const changeCardMonth = ({target}) => {
+    const handlerCardMonth = ({target}) => {
         console.log(target.value)
         setCardMonth(() => target.value);
     };
 
-    const changeCardHolder = ({ target }) => {
+    const handlerCardHolder = ({ target }) => {
         setCardHolder(() => target.value);
     };
 
-    const changeCardNumber = ({ target }) => {
+    const handlerCardNumber = ({ target }) => {
         let value = target.value.replace(/\s/g, ""); // delete all spaces
         target.value = value.replace(/\D/g, ""); // delete not numbers
 
@@ -49,9 +49,9 @@ const Wrapper = () => {
                     cardNumber={cardNumber}
                     cardHolder={cardHolder}
                     cardMonth={cardMonth}
-                    changeCardNumber={changeCardNumber}
-                    changeCardHolder={changeCardHolder}
-                    changeCardMonth={changeCardMonth}
+                    handlerCardNumber={handlerCardNumber}
+                    handlerCardHolder={handlerCardHolder}
+                    handlerCardMonth={handlerCardMonth}
                 />
             </div>
         </div>

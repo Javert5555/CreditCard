@@ -1,4 +1,4 @@
-@import './styles/mixins';;
+@import './styles/mixins';
 
 :root {
     box-sizing: border-box;
@@ -8,7 +8,7 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto Mono', monospace;
     font-size: 1rem;
     background-color: #000000;
 }
@@ -20,6 +20,10 @@ body {
 h1, h2, h3, h4, h5, h6, p {
     margin: 0;
     padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
 }
 
 .wrapper {
@@ -49,3 +53,14 @@ h1, h2, h3, h4, h5, h6, p {
 //     padding: 20px;
 //     background-color: #c7c7c733;
 // }
+
+
+@font-face {
+
+	font-family: 'Roboto Mono'; 
+
+	src: local('Roboto Mono'),
+
+		url(./fonts/RobotoMono-VariableFont_wght.ttf); 
+
+}
