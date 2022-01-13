@@ -30,7 +30,7 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     width: 100%;
     height: 100vh; // if we add the veil, the change this strike to: "height: 100%;"
-    padding: 20px; // if we add the veil, then delete this strike
+    // padding: 20px; // if we add the veil, then delete this strike
 
 }
 
@@ -47,12 +47,12 @@ h1, h2, h3, h4, h5, h6 {
     // filter: blur(5px);
 }
 
-// .veil { // <----- if we need a veil
-//     max-width: 100%;
-//     height: 100vh;
-//     padding: 20px;
-//     background-color: #c7c7c733;
-// }
+.veil { // <----- if we need a veil
+    max-width: 100%;
+    height: 100vh;
+    padding: 20px;
+    background-color: #c7c7c733;
+}
 
 
 @font-face {
