@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 import setFocusStyles from "./setFocusStyles";
 
 const FormBottomPart = ({ cardMonth, cardYear, cardCVV, handlerCardMonth, handlerCardYear, handlerCardCVV }) => {
@@ -163,6 +164,15 @@ const FormBottomPart = ({ cardMonth, cardYear, cardCVV, handlerCardMonth, handle
             </div>
         </div>
     );
-}
+};
+
+FormBottomPart.propTypes = {
+    cardMonth: PropTypes.string.isRequired,
+    cardYear: PropTypes.string.isRequired,
+    cardCVV: PropTypes.string.isRequired,
+    handlerCardMonth: PropTypes.func.isRequired,
+    handlerCardYear: PropTypes.func.isRequired,
+    handlerCardCVV: PropTypes.func.isRequired,
+};
 
 export default FormBottomPart;

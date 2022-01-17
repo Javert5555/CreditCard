@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 import setFocusStyles from "./setFocusStyles";
 
 const FormUpperPart = ({ cardNumber, cardHolder, handlerCardNumber, handlerCardHolder}) => {
@@ -90,6 +91,13 @@ const FormUpperPart = ({ cardNumber, cardHolder, handlerCardNumber, handlerCardH
             </label>
         </div>
     );
-}
+};
+
+FormUpperPart.propTypes = {
+    cardNumber: PropTypes.string.isRequired,
+    cardHolder: PropTypes.string.isRequired,
+    handlerCardNumber: PropTypes.func.isRequired,
+    handlerCardHolder: PropTypes.func.isRequired,
+};
 
 export default FormUpperPart;

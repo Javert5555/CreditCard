@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import FourCardNumber from "./FourCardNumbers";
-import setFocusStyles from "../../input_form/form_parts/setFocusStyles";
+import PropTypes from "prop-types";
 import "../../../styles/inner-forms.scss";
 
 
@@ -60,37 +60,6 @@ const InnerFrontForm = ({ cardNumber, cardHolder, cardMonth, cardYear }) => {
 
     }, [cardYear]);
 
-    // const holderClasses = ["card-front__name", "card-front__name-title", "card-front__name-suptitle"];
-    // const numberClasses = ["card-front__number", "card-front__number-group", "card-front__number-item", "card-front__number-count"];
-    
-    // const toNumberFocusStyles = {
-    //     "top": "100px",
-    //     "left": "15px",
-    //     "width": "400px",
-    //     "height": "42px",
-    //     "opacity": "1",
-    // };
-
-    // const toHolderFocusStyles = {
-    //     "top": "200px",
-    //     "left": "15px",
-    //     "width": "300px",
-    //     "height": "63px",
-    //     "opacity": "1",
-    // };
-
-
-    // window.addEventListener("click", ({ target }) => {
-    //     if(holderClasses.some((holderClass) => holderClass === target.className)) {
-    //         setFocusStyles(toHolderFocusStyles);
-    //         console.log(123)
-    //     } else if (numberClasses.some((numberClass) => numberClass === target.className)) {
-    //         setFocusStyles(toNumberFocusStyles);
-    //     }
-    // })
-
-
-
     return (
             <form>
                 <label htmlFor="card-number" className="card-front__number"> {/* focus */}
@@ -116,6 +85,13 @@ const InnerFrontForm = ({ cardNumber, cardHolder, cardMonth, cardYear }) => {
                 </div>
             </form>
     );
+};
+
+InnerFrontForm.propTypes = {
+    cardNumber: PropTypes.string.isRequired,
+    cardHolder: PropTypes.string.isRequired,
+    cardMonth: PropTypes.string.isRequired,
+    cardYear: PropTypes.string.isRequired,
 };
 
 export default InnerFrontForm;
