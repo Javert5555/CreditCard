@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import setFocusStyles from "./setFocusStyles";
 
 const FormBottomPart = ({ cardMonth, cardYear, cardCVV, handlerCardMonth, handlerCardYear, handlerCardCVV }) => {
     const handlerCvv = ({ target }) => {
@@ -13,12 +14,86 @@ const FormBottomPart = ({ cardMonth, cardYear, cardCVV, handlerCardMonth, handle
         // else the card stays in the same position or is rotated to its original position
     };
 
+    const toDateFocusStyles = {
+        "top": "200px",
+        "left": "325px",
+        "width": "90px",
+        "height": "63px",
+        "opacity": "1",
+    };
+
     useEffect(() => {
         window.addEventListener("click", handlerCvv);
         return () => {
             window.removeEventListener("click", handlerCvv);
         }
-    }, [])
+    }, []);
+
+    useEffect(() => {
+        let monthInput = document.querySelector(".input-form__month");
+
+
+        monthInput.addEventListener("focus", () => {
+            setFocusStyles(toDateFocusStyles);
+        });
+        
+        monthInput.addEventListener("blur", () => {
+            setTimeout(() => {
+                if (document.activeElement === document.querySelector("body")) {
+                    setFocusStyles();
+                }
+            }, 300)
+        });
+
+        return () => {
+            monthInput.removeEventListener("focus", setFocusStyles);
+            monthInput.removeEventListener("blur", setFocusStyles); 
+        }
+    }, []);
+
+    useEffect(() => {
+        let yearInput = document.querySelector(".input-form__year");
+
+
+        yearInput.addEventListener("focus", () => {
+            setFocusStyles(toDateFocusStyles);
+        });
+        
+        yearInput.addEventListener("blur", () => {
+            setTimeout(() => {
+                if (document.activeElement === document.querySelector("body")) {
+                    setFocusStyles();
+                }
+            }, 300)
+        });
+
+        return () => {
+            yearInput.removeEventListener("focus", setFocusStyles);
+            yearInput.removeEventListener("blur", setFocusStyles); 
+        }
+    }, []);
+
+    useEffect(() => {
+        let cvvInput = document.querySelector(".input-form__cvv");
+
+
+        cvvInput.addEventListener("focus", () => {
+            setFocusStyles();
+        });
+        
+        cvvInput.addEventListener("blur", () => {
+            setTimeout(() => {
+                if (document.activeElement === document.querySelector("body")) {
+                    setFocusStyles();
+                }
+            }, 300)
+        });
+
+        return () => {
+            cvvInput.removeEventListener("focus", setFocusStyles);
+            cvvInput.removeEventListener("blur", setFocusStyles); 
+        }
+    }, []);
 
     return (
         <div className="input-form__bottom-part">

@@ -14,6 +14,7 @@ const CardCover = ({ cardNumber, cardHolder, cardMonth, cardYear, cardCVV }) => 
     return (
         <div className="card">
             <div className="card-front">
+                <div id="focus"></div>
                 <img className="card-chip" src={Chip} />
                 <img className="visa-logo visa-logo_front" src={Visa} />
                 <InnerFrontForm
