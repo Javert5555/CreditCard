@@ -1,7 +1,23 @@
 @import 'mixins';
 
+#focus {
+    @include positionAbs($top: 0, $left: 0);
+    
+    border: 2px solid #eeeeee;
+    border-radius: 10px;
+    background-color: #5353537e;
+    width: 430px;
+    height: 270px;
+
+    content: "";
+    // z-index: 1000;
+    opacity: 0;
+    transition: all .35s ease-in-out;
+    
+}
+
 .card {
-    // position: relative;
+    position: relative;
     width: 430px;
     height: 270px;
     margin: 2em auto 0;
@@ -15,7 +31,7 @@
     backface-visibility: hidden;
     @include background($url: "../assets/img/wall2.jpg");
     @include positionAbs($top: 0, $left: 0);
-    border-radius: 3%;
+    border-radius: 10px;
 }
 
 .card-back {

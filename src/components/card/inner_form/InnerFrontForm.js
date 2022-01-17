@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import FourCardNumber from "./FourCardNumbers";
+import setFocusStyles from "../../input_form/form_parts/setFocusStyles";
 import "../../../styles/inner-forms.scss";
 
 
@@ -59,10 +60,40 @@ const InnerFrontForm = ({ cardNumber, cardHolder, cardMonth, cardYear }) => {
 
     }, [cardYear]);
 
+    // const holderClasses = ["card-front__name", "card-front__name-title", "card-front__name-suptitle"];
+    // const numberClasses = ["card-front__number", "card-front__number-group", "card-front__number-item", "card-front__number-count"];
+    
+    // const toNumberFocusStyles = {
+    //     "top": "100px",
+    //     "left": "15px",
+    //     "width": "400px",
+    //     "height": "42px",
+    //     "opacity": "1",
+    // };
+
+    // const toHolderFocusStyles = {
+    //     "top": "200px",
+    //     "left": "15px",
+    //     "width": "300px",
+    //     "height": "63px",
+    //     "opacity": "1",
+    // };
+
+
+    // window.addEventListener("click", ({ target }) => {
+    //     if(holderClasses.some((holderClass) => holderClass === target.className)) {
+    //         setFocusStyles(toHolderFocusStyles);
+    //         console.log(123)
+    //     } else if (numberClasses.some((numberClass) => numberClass === target.className)) {
+    //         setFocusStyles(toNumberFocusStyles);
+    //     }
+    // })
+
+
 
     return (
             <form>
-                <label htmlFor="card-number" className="card-front__number focus">
+                <label htmlFor="card-number" className="card-front__number"> {/* focus */}
                         {cardNumberGroups.map((numberGroup, index) => (
                             <div className="card-front__number-group" key={`card-front__number-group-${index}`}>
                                 {numberGroup}
@@ -70,7 +101,7 @@ const InnerFrontForm = ({ cardNumber, cardHolder, cardMonth, cardYear }) => {
                         ))}
                 </label>
 
-                <label htmlFor="card-name" className="card-front__name focus">
+                <label htmlFor="card-name" className="card-front__name"> {/* focus */}
                         <div className="card-front__name-title">Card Holder</div>
                         <div className="card-front__name-suptitle">Full Name</div>
                 </label>
