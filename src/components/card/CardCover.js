@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import InnerFrontForm from "./inner_form/InnerFrontForm";
+import PropTypes from "prop-types";
 import "../../styles/card.scss";
 import Visa from "../../assets/img/visa-logo-1.png"
 import Chip from "../../assets/img/chip-2.png"
@@ -37,6 +38,14 @@ const CardCover = ({ cardNumber, cardHolder, cardMonth, cardYear, cardCVV }) => 
             </div>
         </div>
     );
+};
+
+CardCover.propTypes = {
+    cardNumber: PropTypes.string.isRequired,
+    cardHolder: PropTypes.string.isRequired,
+    cardMonth: PropTypes.string.isRequired,
+    cardYear: PropTypes.string.isRequired,
+    cardCVV: PropTypes.string.isRequired,
 };
 
 export default CardCover;

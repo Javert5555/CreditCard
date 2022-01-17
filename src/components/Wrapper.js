@@ -11,23 +11,6 @@ const Wrapper = () => {
     const [ cardMonth, setCardMonth ] = useState("DEFAULT");
     const [ cardYear, setCardYear ] = useState("DEFAULT");
 
-    // const cardElementsStates = {
-    //     "cardNumber": cardNumber,
-    //     "cardHolder": cardHolder,
-    //     "cardCVV": cardCVV,
-    //     "cardMonth": cardMonth,
-    //     "cardYear": cardYear
-    // };
-
-    // const cardStateHndlers = {
-    //     "setCardNumber": setCardNumber,
-    //     "setCardHolder": setCardHolder,
-    //     "setCardCVV": setCardCVV,
-    //     "setCardMonth": setCardMonth,
-    //     "setCardYear": setCardYear
-    // };
-
-
     const handlerCardYear = ({ target }) => {
         setCardYear(() => target.value);
     };
