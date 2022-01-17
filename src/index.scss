@@ -1,4 +1,5 @@
-@import './styles/mixins';
+@import './styles/mixin/mixins';
+@import './styles/constants/base.scss';
 
 :root {
     box-sizing: border-box;
@@ -43,7 +44,7 @@ h1, h2, h3, h4, h5, h6 {
     bottom: 0;
     // margin: -30px;
     z-index: -1;
-    @include background("./assets/img/wall2.jpg");
+    @include background($url: "./assets/img/" + $img-url);
     // filter: blur(5px);
 }
 
