@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import setFocusStyles from "./setFocusStyles";
+import useOutlineAnimation from "./useOutlineAnimation";
 
 const FormBottomPart = ({ cardMonth, cardYear, cardCVV, handlerCardMonth, handlerCardYear, handlerCardCVV }) => {
     const handlerCvv = ({ target }) => {
@@ -14,15 +14,7 @@ const FormBottomPart = ({ cardMonth, cardYear, cardCVV, handlerCardMonth, handle
         // if you click on the cvv code, the card will rotate 180 degrees
         // else the card stays in the same position or is rotated to its original position
     };
-
-    const toDateFocusStyles = {
-        "top": "200px",
-        "left": "325px",
-        "width": "90px",
-        "height": "63px",
-        "opacity": "1",
-    };
-
+    
     useEffect(() => {
         window.addEventListener("click", handlerCvv);
         return () => {
@@ -30,71 +22,9 @@ const FormBottomPart = ({ cardMonth, cardYear, cardCVV, handlerCardMonth, handle
         }
     }, []);
 
-    useEffect(() => {
-        let monthInput = document.querySelector(".input-form__month");
-
-
-        monthInput.addEventListener("focus", () => {
-            setFocusStyles(toDateFocusStyles);
-        });
-        
-        monthInput.addEventListener("blur", () => {
-            setTimeout(() => {
-                if (document.activeElement === document.querySelector("body")) {
-                    setFocusStyles();
-                }
-            }, 300)
-        });
-
-        return () => {
-            monthInput.removeEventListener("focus", setFocusStyles);
-            monthInput.removeEventListener("blur", setFocusStyles); 
-        }
-    }, []);
-
-    useEffect(() => {
-        let yearInput = document.querySelector(".input-form__year");
-
-
-        yearInput.addEventListener("focus", () => {
-            setFocusStyles(toDateFocusStyles);
-        });
-        
-        yearInput.addEventListener("blur", () => {
-            setTimeout(() => {
-                if (document.activeElement === document.querySelector("body")) {
-                    setFocusStyles();
-                }
-            }, 300)
-        });
-
-        return () => {
-            yearInput.removeEventListener("focus", setFocusStyles);
-            yearInput.removeEventListener("blur", setFocusStyles); 
-        }
-    }, []);
-
-    useEffect(() => {
-        let cvvInput = document.querySelector(".input-form__cvv");
-
-
-        cvvInput.addEventListener("focus", () => {
-            setFocusStyles();
-        });
-        
-        cvvInput.addEventListener("blur", () => {
-            setTimeout(() => {
-                if (document.activeElement === document.querySelector("body")) {
-                    setFocusStyles();
-                }
-            }, 300)
-        });
-
-        return () => {
-            cvvInput.removeEventListener("focus", setFocusStyles);
-            cvvInput.removeEventListener("blur", setFocusStyles); 
-        }
-    }, []);
+    useOutlineAnimation(".card-front__date", ".input-form__month");
+    useOutlineAnimation(".card-front__date", ".input-form__year");
+    useOutlineAnimation(".card", ".input-form__cvv");
 
     return (
         <div className="input-form__bottom-part">

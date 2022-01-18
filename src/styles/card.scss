@@ -23,6 +23,7 @@
     height: 270px;
     margin: 2em auto 0;
     perspective: 1000px;
+    @include unselectable();
 }
 
 .card-front, .card-back {
@@ -112,3 +113,6 @@
 }
 
 
+// @media screen {
+    
+// }
