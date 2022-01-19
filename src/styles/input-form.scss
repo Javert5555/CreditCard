@@ -3,12 +3,17 @@
 .input-form {
     border-radius: 1em;
     margin: -9em auto 1em;
-    width: 500px;
+    max-width: 500px;
     height: auto;
     background-color: #b6b6b65b;
     z-index: -1;
     padding: 11em 2em 1em;
 }
+
+.input-form__label {
+    width: 100%;
+}
+
 .input-form__submit {
     width: 100%;
     margin-top: 30px;
@@ -72,13 +77,48 @@ select:focus {
 
 
 
-
-
-
-
-
 // .input-form__number
 // .input-form__holder
 // .input-form__month
 // .input-form__year
 // .input-form__cvv
+
+
+@media (max-width: 575px) {
+    .input-form {
+        padding: 11em 1em 1em;
+    }
+
+    .input-form__bottom-part {
+        flex-wrap: wrap;
+    }
+
+    .input-form__exp-date {
+        width: 100%;
+    }
+    .input-form__exp-date_inner {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .input-form__label_month {
+        margin-right: .5em;
+    }
+
+    .input-form__month,
+    .input-form__year {
+        width: inherit;
+        margin-right: 0;
+    }
+
+    .input-form__cvv-container {
+        width: 100%;
+        margin-top: 1em;
+    }
+    
+    .input-form__cvv{
+        width: 100%;
+    }
+
+
+}

@@ -31,7 +31,7 @@ const FormBottomPart = ({ cardMonth, cardYear, cardCVV, handlerCardMonth, handle
             <div className="input-form__exp-date">
                 <h2 className="input-form__title">Expiration Date:</h2>
                 <div className="input-form__exp-date_inner">
-                    <label htmlFor="card-month" className="input-form__label">
+                    <label htmlFor="card-month" className="input-form__label input-form__label_month">
                         <select
                             id="card-month"
                             className="input-form__month"
@@ -54,7 +54,7 @@ const FormBottomPart = ({ cardMonth, cardYear, cardCVV, handlerCardMonth, handle
 
                         </select>
                     </label>
-                    <label htmlFor="card-year" className="input-form__label">
+                    <label htmlFor="card-year" className="input-form__label input-form__label_year">
                         <select
                             id="card-year"
                             className="input-form__year"
@@ -78,7 +78,7 @@ const FormBottomPart = ({ cardMonth, cardYear, cardCVV, handlerCardMonth, handle
                     </label>
                 </div>
             </div>
-            <div id="input-form__label_cvv">
+            <div id="input-form__label_cvv" className="input-form__cvv-container">
                 <label htmlFor="card-cvv" className="input-form__label">
                     <h2 className="input-form__title">CVV:</h2>
                     <input

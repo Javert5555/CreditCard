@@ -39,12 +39,6 @@
 .card-back {
     transform: rotateY(180deg);
 }
-// .card:hover .card-front {
-//   transform: rotateY(180deg);
-// }
-// .card:hover .card-back {
-//   transform: rotateY(360deg);
-// }
 
 .card-chip {
     @include positionAbs($top: 5%, $left: 5%);
@@ -95,11 +89,11 @@
 
 .card-back__cvv-strip {
     content: "";
-    width: 400px;
+    max-width: 100%;
     height: 45px;
     background-color: #f0f8ff;
     border-radius: 8px;
-    margin: 0 auto;
+    margin: 0 1em;
 }
 
 .card-back__cvv-symbols {
@@ -113,6 +107,61 @@
 }
 
 
-// @media screen {
-    
-// }
+@media (max-width: 575px) {
+
+    // Card \\
+    .card {
+        width: 310px;
+        height: 220px;
+    }
+
+    .card-chip {
+        width: 35px;
+    }
+
+    .visa-logo {
+        width: 60px;
+    }
+
+    // Card front side \\
+
+    .visa-logo_front {
+        @include positionAbs($top: 3%, $left: 78%);
+    }
+
+    // Card back side \\
+
+    .card-back__cvv {
+        @include positionAbs($top: 90px, $left: 0);
+    }
+
+    .card-back__cvv-strip {
+        height: 35px;
+        // top: 10px;
+    }
+
+    .card-back__cvv-symbols {
+        font-size: .9rem;
+        padding: .1em .6em 0 0;
+    }
+
+    .visa-logo_back {
+        margin: 10px 15px 0;
+    }
+
+}
+
+@media (max-width: 370px) {
+
+    // Card \\
+    .card {
+        width: 270px;
+    }
+
+    // Card front side \\
+
+    .visa-logo_front {
+        @include positionAbs($top: 3%, $left: 75%);
+    }
+
+}
