@@ -17,6 +17,7 @@
     width: 400px;
     height: 42px;
     cursor: pointer;
+    font-size: 1.6rem;
 }
 
 .card-front__number-group {
@@ -27,7 +28,6 @@
 
 .card-front__number-item {
     margin-right: 0.2rem;
-    font-size: 1.6rem;
     color: #fff;
     text-align: center;
     // width: 30px;
@@ -38,7 +38,6 @@
 }
 
 .card-front__number-count {
-    width: 14px;
     text-transform: uppercase;
 }
 
@@ -47,7 +46,7 @@
 .card-front__name {
     @include positionAbs($top: 200px, $left: 15px);
     width: 300px;
-    height: 63px;
+    height: auto;
     padding: 3px 8px;
     // border: 2px solid transparent;
     cursor: pointer;
@@ -71,7 +70,7 @@
 .card-front__date {
     @include positionAbs($top: 200px, $left: 325px);
     width: 90px;
-    height: 63px;
+    height: auto;
     padding: 3px 8px;
     // border: 2px solid transparent;
     cursor: pointer;
@@ -98,3 +97,117 @@
 .card-front__date-info-slash {
     margin: 0 3px;
 }
+
+
+@media (max-width: 575px) {
+
+    // Card Number \\
+
+    .card-front__number {
+        @include positionAbs($top: 80px, $left: 10px);
+        width: 290px;
+        font-size: 1.3rem;
+
+    }
+
+    .card-front__number-item {
+        margin-right: 0;
+
+    }
+
+    // Card Name \\
+
+    .card-front__name {
+        @include positionAbs($top: 165px, $left: 10px);
+        width: 225px;
+    }
+
+    
+    .card-front__name-title {
+        font-size: .7rem;
+    }
+
+    .card-front__name-suptitle {
+        font-size: .9rem;
+    }
+
+    // Card Date \\
+
+    .card-front__date {
+        @include positionAbs($top: 165px, $left: 240px);
+        width: 60px;
+        padding: 3px 8px;
+    }
+
+    
+    .card-front__date-title {
+        font-size: .7rem;
+    }
+
+    .card-front__date-info-month, .card-front__date-info-slash, .card-front__date-info-year {
+        font-size: .9rem;
+    }
+
+    .card-front__date-info-slash {
+        margin: 0 1px;
+    }
+
+
+}
+
+@media (max-width: 370px) {
+
+    // Card Number \\
+
+    .card-front__number {
+        @include positionAbs($top: 80px, $left: 5px);
+        width: 260px;
+        font-size: 1.2rem;
+
+    }
+
+    .card-front__number-item {
+        margin-right: 0;
+
+    }
+
+    // Card Name \\
+
+    .card-front__name {
+        @include positionAbs($top: 165px, $left: 5px);
+        width: 180px;
+    }
+
+    
+    .card-front__name-title {
+        font-size: .7rem;
+    }
+
+    .card-front__name-suptitle {
+        font-size: .9rem;
+    }
+
+    // Card Date \\
+
+    .card-front__date {
+        @include positionAbs($top: 165px, $left: 200px);
+        width: 60px;
+        padding: 3px 8px;
+    }
+
+    
+    .card-front__date-title {
+        font-size: .7rem;
+    }
+
+    .card-front__date-info-month, .card-front__date-info-slash, .card-front__date-info-year {
+        font-size: .9rem;
+    }
+
+    .card-front__date-info-slash {
+        margin: 0 1px;
+    }
+
+
+}
+
