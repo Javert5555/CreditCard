@@ -31,7 +31,7 @@ const InnerFrontForm = ({ cardNumber, cardHolder, cardMonth, cardYear }) => {
         let holderName = document.querySelector(".card-front__name-suptitle");
         if (cardHolder.length === 0) {
             holderName.innerHTML = "Full Name";
-        } else if (screen.width < 370 && cardHolder.length >= 19) {
+        } else if (window.innerWidth < 370 && cardHolder.length >= 19) {
             holderName.innerHTML = `${cardHolder.slice(0,17)}&#133`;
         } else if (cardHolder.length >= 25) {
             holderName.innerHTML = `${cardHolder.slice(0,23)}&#133`;
