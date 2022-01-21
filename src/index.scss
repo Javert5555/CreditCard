@@ -34,7 +34,7 @@ h1, h2, h3, h4, h5, h6 {
 .wrapper {
     position: relative;
     width: 100%;
-    height: 100vh; // if we add the veil, the change this strike to: "height: 100%;"
+    height: 100%; // if we add the veil, the change this strike to: "height: 100%;"
     padding: 20px; // if we add the veil, then delete this strike
     overflow-x: hidden;
 
@@ -49,8 +49,8 @@ h1, h2, h3, h4, h5, h6 {
     bottom: 0;
     // margin: -30px;
     z-index: -1;
-    // @include background($url: "./assets/img/" + $img-url); // if we need a back-img just add this strike
-    background-color: transparent; // if we need a back-img just delete this strike
+    @include background($url: "./assets/img/" + $img-url); // if we need a back-img just add this strike
+    // background-color: transparent; // if we need a back-img just delete this strike
     // filter: blur(5px);
 }
 

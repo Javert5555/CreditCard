@@ -41,7 +41,6 @@ const useOutlineAnimation = (activeFormSelector, inputSelector) => {
         const updateWindowDimensions = () => {
             const newWidth = window.width;
             setWidth(newWidth);
-            console.log("updating width");
 
             cardElement = getComputedStyle(document.querySelector(".card"));
 
