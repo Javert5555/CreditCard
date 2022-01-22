@@ -63,16 +63,30 @@ select:focus {
 .input-form__bottom-part,
 .input-form__exp-date_inner {
     display: flex;
+    // overflow: hidden;
+}
+
+.input-form__exp-date {
+    width: 50%;
+}
+
+.input-form__cvv-container {
+    width: 50%;
 }
 
 
 .input-form__month,
 .input-form__year {
-    margin-right: 1em;
-    width: calc(100% - 1em);
+    margin-right: .5em;
+    width: calc(100% - .5em);
     word-break:break-word;
-    box-sizing: border-box;
+    // box-sizing: border-box;
     cursor: pointer;
+}
+
+.input-form__cvv {
+    max-width: 100%;
+    width: auto;
 }
 
 
