@@ -16,6 +16,15 @@ const InputForm = ({
         handlerCardYear,
         handlerCardCVV,
     }) => {
+    
+    const handlerInputSubmit = (e) => {
+        e.preventDefault();
+        // if (cardNumber.length === 19 && cardHolder !== "" && cardMonth !=="DEFAULT" && cardYear !=="DEFAULT" && cardCVV.length === 4) {
+        //     alert("Nice card");
+        // } else {
+        //     alert("Bad card");
+        // }
+    };
 
     return (
         <form className="input-form">
@@ -34,7 +43,7 @@ const InputForm = ({
                 handlerCardCVV={handlerCardCVV}
 
             />
-            <input className="input-form__submit" type="submit" value="Submit" />
+            <input onClick={handlerInputSubmit} className="input-form__submit" type="submit" value="Submit" />
         </form>
     );
 };
