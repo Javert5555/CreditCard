@@ -69,6 +69,9 @@ const Wrapper = () => {
                     handlerCardYear={handlerCardYear}
                     handlerCardCVV={handlerCardCVV}
                 />
+                <div className="wrapper__link">
+                    <a href="https://github.com/Javert5555/CreditCard" target="_blank">GitHub</a>
+                </div>
             </div>
         </div>
     );
