@@ -13,7 +13,10 @@ module.exports = {
         port: 3000
     },
     plugins: [
-        new HTMLWebpackPlugin({template: "./src/index.html"}),
+        new HTMLWebpackPlugin({
+            template: "./src/index.html",
+            favicon: "./src/assets/credit-card-solid.ico"
+        }),
         new CleanWebpackPlugin()
     ],
     devtool: "source-map",
