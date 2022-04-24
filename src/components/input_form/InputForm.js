@@ -15,15 +15,45 @@ const InputForm = ({
         handlerCardMonth,
         handlerCardYear,
         handlerCardCVV,
+        setCardNumber,
+        setCardHolder,
+        setCardCVV,
+        setCardMonth,
+        setCardYear
     }) => {
+
+    const cardHolderInfo = {
+        cardNumber: cardNumber.replace(/\s/g, ""),
+        cardHolder: cardHolder,
+        cardMonth: cardMonth,
+        cardYear: cardYear,
+        cardCVV: cardCVV
+    };
     
-    const handlerInputSubmit = (e) => {
+    const handlerInputSubmit = async (e) => {
         e.preventDefault();
-        // if (cardNumber.length === 19 && cardHolder !== "" && cardMonth !=="DEFAULT" && cardYear !=="DEFAULT" && cardCVV.length === 4) {
-        //     alert("Nice card");
-        // } else {
-        //     alert("Bad card");
-        // }
+        const response = await fetch('/holder', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                cardHolderInfo
+            })
+        });
+        if (response.ok) {
+            const answer = await response.text();
+            console.log(answer);
+        } else {
+            console.log(response.status);
+            // console.log(response.json()); // ???
+        }
+        setCardNumber(() => "")
+        setCardHolder(() => "")
+        setCardCVV(() => "")
+        setCardMonth(() => "DEFAULT")
+        setCardYear(() => "DEFAULT")
+        
     };
 
     return (
