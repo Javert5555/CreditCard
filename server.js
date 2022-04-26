@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const { MongoClient } = require('mongodb');
+const addCardHolder = require('./routes/cardCreate.routes');
 
 const PORT = process.env.PORT || 3000;
 
@@ -21,31 +22,7 @@ const start = async () => {
         const client = new MongoClient('mongodb://localhost/mongo');
         await client.connect();
         const cardHolders = client.db().collection('card_holders');
-        app.post('/holder', async (request, response) => {
-            try {
-                const existingCardHolder = await cardHolders.findOne({cardNumber: request.body.cardHolderInfo.cardNumber});
-                if(!request.body) {
-                    return response.sendStatus(400);
-                } else if (existingCardHolder) {
-                    return response.send('Номер занят');
-                } else {
-                    await cardHolders.insertOne(
-                        {
-                            cardNumber: request.body.cardHolderInfo.cardNumber,
-                            cardHolder: request.body.cardHolderInfo.cardHolder,
-                            cardMonth: request.body.cardHolderInfo.cardMonth,
-                            cardYear: request.body.cardHolderInfo.cardYear,
-                            cardCVV: request.body.cardHolderInfo.cardCVV
-                        },
-                    );
-                    return response.send('Всё норм');
-                }
-            } catch (error) {
-                console.log(error)
-                return response.status(500).json({message: 'Ошибка на стороне сервера'})
-            }
-
-        });
+        addCardHolder(app, cardHolders);
         app.listen(PORT, () => console.log(`app has been started on port:${PORT}...`));
     } catch (e) {
         console.log('Server error', e.message);

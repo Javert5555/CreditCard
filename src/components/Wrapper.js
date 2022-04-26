@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import CardCover from "./card/CardCover";
 import InputForm from "./input_form/InputForm";
 import "../index.scss"
+import "../styles/popup.scss"
 
 const Wrapper = () => {
 
@@ -50,6 +51,7 @@ const Wrapper = () => {
     return (
         <div className="wrapper">
             <div className="veil">
+                <div className="warning-popup"></div>
                 <CardCover
                     cardNumber={cardNumber}
                     cardHolder={cardHolder}

@@ -29,9 +29,40 @@ const InputForm = ({
         cardYear: cardYear,
         cardCVV: cardCVV
     };
+
+    const checkInputFields = () => {
+        let warningMessage = "";
+        let warningStatus = false;
+        if (cardNumber.replace(/\s/g, "").length !== 16){
+            warningMessage = "Укажите правильно номер (16 цифр).";
+            warningStatus = true;
+        } else if (cardHolder.length === 0) {
+            warningMessage = "Укажите правильно фамилию и имя владельца.";
+            warningStatus = true;
+        } else if (cardMonth === "DEFAULT") {
+            warningMessage = "Укажите месяц истечения службы";
+            warningStatus = true;
+        } else if (cardYear === "DEFAULT") {
+            warningMessage = "Укажите год истечения службы";
+            warningStatus = true;
+        } else if (cardCVV.length !== 4) {
+            warningMessage = "Укажите правильно CVV код (4 цифры).";
+            warningStatus = true;
+        }
+        if (warningStatus) {
+            const popUp = document.querySelector(".warning-popup");
+            popUp.innerHTML = warningMessage;
+            popUp.style.opacity = 1;
+            document.querySelector(".wrapper").addEventListener("click", () => {popUp.style.opacity = 0});
+            // window.addEventListener("resize", () => {popUp.style.opacity = 0});
+            // window.removeEventListener("resize", () => {popUp.style.opacity = 0});
+        }
+        return warningStatus;
+    };
     
     const handlerInputSubmit = async (e) => {
         e.preventDefault();
+        if (checkInputFields()) return;
         const response = await fetch('/holder', {
             method: 'POST',
             headers: {
@@ -44,16 +75,20 @@ const InputForm = ({
         if (response.ok) {
             const answer = await response.text();
             console.log(answer);
-        } else {
+            setCardNumber(() => "")
+            setCardHolder(() => "")
+            setCardCVV(() => "")
+            setCardMonth(() => "DEFAULT")
+            setCardYear(() => "DEFAULT")
+        } else if (response.status === 401) {
+            const answer = (await response.json()).message;
             console.log(response.status);
-            // console.log(response.json()); // ???
-        }
-        setCardNumber(() => "")
-        setCardHolder(() => "")
-        setCardCVV(() => "")
-        setCardMonth(() => "DEFAULT")
-        setCardYear(() => "DEFAULT")
-        
+            console.log(answer);
+        } else {
+            const answer = (await response.json()).message;
+            console.log(response.status);
+            console.log(answer); // ???
+        }     
     };
 
     return (

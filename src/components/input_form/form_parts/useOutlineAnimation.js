@@ -24,6 +24,8 @@ const useOutlineAnimation = (activeFormSelector, inputSelector) => {
             document.querySelector("#focus").style.opacity = styles.opacity;
         };
 
+        setFocusStyles();
+
         let activeElement = getComputedStyle(document.querySelector(activeFormSelector));
 
         let toActiveFocusStyles = activeFormSelector === ".card" ?
@@ -100,7 +102,7 @@ const useOutlineAnimation = (activeFormSelector, inputSelector) => {
         return () => {
             activeInput.removeEventListener("focus", setFocusStyles);
             activeInput.removeEventListener("blur", setFocusStyles);
-            window.removeEventListener("resize", updateWindowDimensions)
+            window.removeEventListener("resize", updateWindowDimensions);
         }
     }, [width]);
 };
