@@ -28,7 +28,10 @@ const Wrapper = () => {
     };
 
     const handlerCardHolder = ({ target }) => {
-        setCardHolder(() => target.value);
+        // const value = target.value.replace(/[^A-Za-z\s]/g, "");
+        let value = target.value.replace(/(^[^ ]* )|[ ]+/g, '$1');
+        value = value.replace(/^\s/,"");
+        setCardHolder(() => value);
     };
 
     const handlerCardNumber = ({ target }) => {

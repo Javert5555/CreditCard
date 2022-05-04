@@ -29,6 +29,15 @@ const InputForm = ({
         cardYear: cardYear,
         cardCVV: cardCVV
     };
+    
+    const showMessage = (message) => {
+        const popUp = document.querySelector(".warning-popup");
+        popUp.innerHTML = message;
+        popUp.style.opacity = 1;
+        document.querySelector(".wrapper").addEventListener("click", () => {popUp.style.opacity = 0});
+        // setTimeout();
+        window.addEventListener("resize", () => {popUp.style.opacity = 0});
+    };
 
     const checkInputFields = () => {
         let warningMessage = "";
@@ -50,12 +59,7 @@ const InputForm = ({
             warningStatus = true;
         }
         if (warningStatus) {
-            const popUp = document.querySelector(".warning-popup");
-            popUp.innerHTML = warningMessage;
-            popUp.style.opacity = 1;
-            document.querySelector(".wrapper").addEventListener("click", () => {popUp.style.opacity = 0});
-            // window.addEventListener("resize", () => {popUp.style.opacity = 0});
-            // window.removeEventListener("resize", () => {popUp.style.opacity = 0});
+            showMessage(warningMessage);
         }
         return warningStatus;
     };
@@ -74,7 +78,7 @@ const InputForm = ({
         });
         if (response.ok) {
             const answer = await response.text();
-            console.log(answer);
+            showMessage(answer);
             setCardNumber(() => "")
             setCardHolder(() => "")
             setCardCVV(() => "")
@@ -82,12 +86,10 @@ const InputForm = ({
             setCardYear(() => "DEFAULT")
         } else if (response.status === 401) {
             const answer = (await response.json()).message;
-            console.log(response.status);
-            console.log(answer);
+            showMessage(answer);
         } else {
             const answer = (await response.json()).message;
-            console.log(response.status);
-            console.log(answer); // ???
+            showMessage(answer);
         }     
     };
 
