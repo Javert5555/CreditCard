@@ -40,26 +40,15 @@ const InputForm = ({
     };
 
     const checkInputFields = () => {
-        let warningMessage = "";
         let warningStatus = false;
-        if (cardNumber.replace(/\s/g, "").length !== 16){
-            warningMessage = "Укажите правильно номер (16 цифр).";
+        if (
+            cardNumber.match(/^(\d{4}\s{1}){3}\d{4}/gi) === null ||
+            cardHolder.match(/^[a-zA-Z]+\s{1}[a-zA-Z]+/gi) === null ||
+            cardMonth.match(/^\d{2}$/gi) === null ||
+            cardYear.match(/^\d{4}$/gi) === null ||
+            cardCVV.match(/^\d{4}$/gi) === null
+        ){
             warningStatus = true;
-        } else if (cardHolder.length === 0) {
-            warningMessage = "Укажите правильно фамилию и имя владельца.";
-            warningStatus = true;
-        } else if (cardMonth === "DEFAULT") {
-            warningMessage = "Укажите месяц истечения службы";
-            warningStatus = true;
-        } else if (cardYear === "DEFAULT") {
-            warningMessage = "Укажите год истечения службы";
-            warningStatus = true;
-        } else if (cardCVV.length !== 4) {
-            warningMessage = "Укажите правильно CVV код (4 цифры).";
-            warningStatus = true;
-        }
-        if (warningStatus) {
-            showMessage(warningMessage);
         }
         return warningStatus;
     };
@@ -82,8 +71,8 @@ const InputForm = ({
             setCardNumber(() => "")
             setCardHolder(() => "")
             setCardCVV(() => "")
-            setCardMonth(() => "DEFAULT")
-            setCardYear(() => "DEFAULT")
+            setCardMonth(() => "")
+            setCardYear(() => "")
         } else if (response.status === 401) {
             const answer = (await response.json()).message;
             showMessage(answer);
@@ -94,7 +83,7 @@ const InputForm = ({
     };
 
     return (
-        <form className="input-form">
+        <form className="input-form" onSubmit={handlerInputSubmit}>
             <FormUpperPart
                 cardNumber={cardNumber}
                 cardHolder={cardHolder}
@@ -110,7 +99,7 @@ const InputForm = ({
                 handlerCardCVV={handlerCardCVV}
 
             />
-            <input onClick={handlerInputSubmit} className="input-form__submit" type="submit" value="Submit" />
+            <input className="input-form__submit" type="submit" value="Submit" />
         </form>
     );
 };

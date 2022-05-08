@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import CardCover from "./card/CardCover";
 import InputForm from "./input_form/InputForm";
-import "../index.scss"
-import "../styles/popup.scss"
+import UploadImg from "./upload_img/UploadImg";
+import "../index.scss";
+import "../styles/popup.scss";
 
 const Wrapper = () => {
 
     const [ cardNumber, setCardNumber ] = useState("");
     const [ cardHolder, setCardHolder ] = useState("");
     const [ cardCVV, setCardCVV ] = useState("");
-    const [ cardMonth, setCardMonth ] = useState("DEFAULT");
-    const [ cardYear, setCardYear ] = useState("DEFAULT");
+    const [ cardMonth, setCardMonth ] = useState("");
+    const [ cardYear, setCardYear ] = useState("");
 
     const handlerCardYear = ({ target }) => {
         setCardYear(() => target.value);
@@ -28,9 +29,8 @@ const Wrapper = () => {
     };
 
     const handlerCardHolder = ({ target }) => {
-        // const value = target.value.replace(/[^A-Za-z\s]/g, "");
         let value = target.value.replace(/(^[^ ]* )|[ ]+/g, '$1');
-        value = value.replace(/^\s/,"");
+        value = value.replace(/[^A-Za-z ]|^\s/g, "");
         setCardHolder(() => value);
     };
 
@@ -82,6 +82,7 @@ const Wrapper = () => {
                 <div className="wrapper__link">
                     <a href="https://github.com/Javert5555/CreditCard" target="_blank">GitHub</a>
                 </div>
+                {/* <UploadImg /> */}
             </div>
         </div>
     );
