@@ -4,8 +4,8 @@ import useOutlineAnimation from "./useOutlineAnimation";
 
 const FormBottomPart = ({ cardMonth, cardYear, cardCVV, handlerCardMonth, handlerCardYear, handlerCardCVV }) => {
 
-    const months = ["DEFAULT"],
-        years = ["DEFAULT"];
+    const months = [""],
+        years = [""];
 
     for (let i = 1; i <= 12; i++) {
         i >= 10 ? months.push(String(i)) : months.push(`0${i}`);
@@ -45,13 +45,14 @@ const FormBottomPart = ({ cardMonth, cardYear, cardCVV, handlerCardMonth, handle
                 <div className="input-form__exp-date_inner">
                     <label htmlFor="card-month" className="input-form__label input-form__label_month">
                         <select
+                            required
                             id="card-month"
                             className="input-form__month"
                             value={cardMonth}
                             onChange={handlerCardMonth}
                         >
                             {months.map(month => {
-                                return( month === "DEFAULT" ?
+                                return(!month ?
                                     <option value={month} key={`month-${month}`} disabled>Month</option> :
                                     <option value={month} key={`month-${month}`}>{month}</option>
                                 );
@@ -64,9 +65,10 @@ const FormBottomPart = ({ cardMonth, cardYear, cardCVV, handlerCardMonth, handle
                             className="input-form__year"
                             value={cardYear}
                             onChange={handlerCardYear}
+                            required
                         >
                             {years.map(year => {
-                                return(year === "DEFAULT" ?
+                                return(!year ?
                                     <option value={year} key={`year-${year}`} disabled>Year</option> :
                                     <option value={year} key={`year-${year}`}>{year}</option>
                                 );
@@ -86,6 +88,8 @@ const FormBottomPart = ({ cardMonth, cardYear, cardCVV, handlerCardMonth, handle
                         maxLength={4}
                         value={cardCVV}
                         onChange={handlerCardCVV}
+                        required
+                        pattern="^\d{4}$"
                     />
                 </label>
             </div>

@@ -19,6 +19,8 @@ const FormUpperPart = ({ cardNumber, cardHolder, handlerCardNumber, handlerCardH
                     maxLength={19}
                     value={cardNumber}
                     onChange={handlerCardNumber}
+                    required
+                    pattern="^(\d{4}\s{1}){3}\d{4}"
                 />
             </label>
             <label htmlFor="card-name" className="input-form__label">
@@ -28,8 +30,11 @@ const FormUpperPart = ({ cardNumber, cardHolder, handlerCardNumber, handlerCardH
                     className="input-form__holder"
                     name="holder"
                     type="text"
+                    maxLength={100}
                     value={cardHolder}
                     onChange={handlerCardHolder}
+                    required
+                    pattern="^[a-zA-Z]+\s{1}[a-zA-Z]+"
                 />
             </label>
         </div>

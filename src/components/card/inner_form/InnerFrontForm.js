@@ -44,7 +44,7 @@ const InnerFrontForm = ({ cardNumber, cardHolder, cardMonth, cardYear }) => {
 
     useEffect(() => {
         let monthDate = document.querySelector(".card-front__date-info-month");
-        if (cardMonth === "DEFAULT") {
+        if (!cardMonth) {
             monthDate.innerHTML = "mm";
         } else {
             monthDate.innerHTML = cardMonth;
@@ -54,7 +54,7 @@ const InnerFrontForm = ({ cardNumber, cardHolder, cardMonth, cardYear }) => {
 
     useEffect(() => {
         let cardDate = document.querySelector(".card-front__date-info-year");
-        if (cardYear === "DEFAULT") {
+        if (!cardYear) {
             cardDate.innerHTML = "yy";
         } else {
             cardDate.innerHTML = cardYear.slice(2,4);

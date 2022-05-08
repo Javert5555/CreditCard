@@ -1,0 +1,16 @@
+.warning-popup {
+    position: fixed;
+    color: #960000;
+    white-space: nowrap;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    padding: 1em 5em;
+    border: 2px solid #000000;
+    border-radius: 1em;
+    background-color: rgba(255, 255, 255, 0.679);
+    opacity: 0;
+    transition: .55s opacity, .55s visibility;
+}
+
+@media (max-width: 575px) {}

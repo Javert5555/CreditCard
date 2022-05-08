@@ -15,19 +15,75 @@ const InputForm = ({
         handlerCardMonth,
         handlerCardYear,
         handlerCardCVV,
+        setCardNumber,
+        setCardHolder,
+        setCardCVV,
+        setCardMonth,
+        setCardYear
     }) => {
+
+    const cardHolderInfo = {
+        cardNumber: cardNumber.replace(/\s/g, ""),
+        cardHolder: cardHolder,
+        cardMonth: cardMonth,
+        cardYear: cardYear,
+        cardCVV: cardCVV
+    };
     
-    const handlerInputSubmit = (e) => {
+    const showMessage = (message) => {
+        const popUp = document.querySelector(".warning-popup");
+        popUp.innerHTML = message;
+        popUp.style.opacity = 1;
+        document.querySelector(".wrapper").addEventListener("click", () => {popUp.style.opacity = 0});
+        // setTimeout();
+        window.addEventListener("resize", () => {popUp.style.opacity = 0});
+    };
+
+    const checkInputFields = () => {
+        let warningStatus = false;
+        if (
+            cardNumber.match(/^(\d{4}\s{1}){3}\d{4}/gi) === null ||
+            cardHolder.match(/^[a-zA-Z]+\s{1}[a-zA-Z]+/gi) === null ||
+            cardMonth.match(/^\d{2}$/gi) === null ||
+            cardYear.match(/^\d{4}$/gi) === null ||
+            cardCVV.match(/^\d{4}$/gi) === null
+        ){
+            warningStatus = true;
+        }
+        return warningStatus;
+    };
+    
+    const handlerInputSubmit = async (e) => {
         e.preventDefault();
-        // if (cardNumber.length === 19 && cardHolder !== "" && cardMonth !=="DEFAULT" && cardYear !=="DEFAULT" && cardCVV.length === 4) {
-        //     alert("Nice card");
-        // } else {
-        //     alert("Bad card");
-        // }
+        if (checkInputFields()) return;
+        const response = await fetch('/holder', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                cardHolderInfo
+            })
+        });
+        if (response.ok) {
+            const answer = await response.text();
+            showMessage(answer);
+            setCardNumber(() => "")
+            setCardHolder(() => "")
+            setCardCVV(() => "")
+            setCardMonth(() => "")
+            setCardYear(() => "")
+        } else if (response.status === 401) {
+            const answer = (await response.json()).message;
+            showMessage(answer);
+        } else {
+            const answer = (await response.json()).message;
+            showMessage(answer);
+        }     
     };
 
     return (
-        <form className="input-form">
+        <form className="input-form" onSubmit={handlerInputSubmit}>
             <FormUpperPart
                 cardNumber={cardNumber}
                 cardHolder={cardHolder}
@@ -43,7 +99,7 @@ const InputForm = ({
                 handlerCardCVV={handlerCardCVV}
 
             />
-            <input onClick={handlerInputSubmit} className="input-form__submit" type="submit" value="Submit" />
+            <input className="input-form__submit" type="submit" value="Submit" />
         </form>
     );
 };
