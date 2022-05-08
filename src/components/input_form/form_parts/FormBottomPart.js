@@ -50,10 +50,9 @@ const FormBottomPart = ({ cardMonth, cardYear, cardCVV, handlerCardMonth, handle
                             className="input-form__month"
                             value={cardMonth}
                             onChange={handlerCardMonth}
-                            // pattern="^\d{2}$"
                         >
                             {months.map(month => {
-                                return( month === "" ?
+                                return(!month ?
                                     <option value={month} key={`month-${month}`} disabled>Month</option> :
                                     <option value={month} key={`month-${month}`}>{month}</option>
                                 );
@@ -67,10 +66,9 @@ const FormBottomPart = ({ cardMonth, cardYear, cardCVV, handlerCardMonth, handle
                             value={cardYear}
                             onChange={handlerCardYear}
                             required
-                            // pattern="^\d{4}$"
                         >
                             {years.map(year => {
-                                return(year === "" ?
+                                return(!year ?
                                     <option value={year} key={`year-${year}`} disabled>Year</option> :
                                     <option value={year} key={`year-${year}`}>{year}</option>
                                 );

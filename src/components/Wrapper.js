@@ -82,7 +82,7 @@ const Wrapper = () => {
                 <div className="wrapper__link">
                     <a href="https://github.com/Javert5555/CreditCard" target="_blank">GitHub</a>
                 </div>
-                {/* <UploadImg /> */}
+                <UploadImg />
             </div>
         </div>
     );
